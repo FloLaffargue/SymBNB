@@ -24,4 +24,8 @@ div.ad h1, div.ad p, div.carousel-caption {
     max-width:24px;
     max-height: 24px;
 }
+.datepicker table tr td.disabled {
+    color:firebrick !important;
+}
+
 
