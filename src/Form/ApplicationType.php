@@ -15,7 +15,9 @@ class ApplicationType extends AbstractType {
      * @return array
      */
     protected function getConfiguration($label, string $placeholder, $options = []): array {
-        return array_merge([
+        
+        // recursive permet de faire en sorte que si j'envoie dans le tab d'options une clé déjà existante comme 'attr' avec une autre valeur que placeholder, placeholder ne sera pas écrasé
+        return array_merge_recursive([
             'label' => $label,
             'attr' => [
                 'placeholder' => $placeholder, 
