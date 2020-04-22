@@ -26,7 +26,7 @@ class AdController extends AbstractController
     {
         //$repo =$this->getDoctrine()->getRepository(Ad::class);
         $ads = $adRepository->findAll();
-
+        
         return $this->render('ad/index.html.twig', [
             'ads' => $ads,
         ]);

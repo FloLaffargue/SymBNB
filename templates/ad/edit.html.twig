@@ -19,7 +19,9 @@
 {% endblock %}
 
 {% block javascripts %}
-    <script src='/js/annonce.js'></script>
+    {# <script src='/js/annonce.js'></script> #}
+    {{ encore_entry_script_tags('annonce') }}
+
 {% endblock %}
 
 
