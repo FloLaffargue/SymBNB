@@ -15,8 +15,8 @@ import '../css/bootstrap.min.css';
 global.$ = global.jQuery = $;
 
 require('jquery');
-require('popper.js')
+require('./popper.min.js')
 require('./bootstrap.min.js')
 
 
-console.log('Hello Webpack Encore! Edit me in assets/js/app.js');
+// console.log('Hello Webpack Encore! Edit me in assets/js/app.js');
