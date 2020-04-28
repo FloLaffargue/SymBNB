@@ -4,7 +4,8 @@
         <meta charset="UTF-8">
         <title>SymBNB : {% block title %}{% endblock %}</title>
         <meta name="viewport" content="width=device-width, user-scalable=no">
-        {{ encore_entry_link_tags('app') }}
+        {# {{ encore_entry_link_tags('app') }} #}
+        <link rel="stylesheet" href="/public/build/app.css">
         {# <link rel="stylesheet" href="/css/bootstrap.min.css">
         <link rel="stylesheet" href="/css/app.css"> #}
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
@@ -16,11 +17,15 @@
         {% include 'admin/partials/header.html.twig' %}
 
         {% block body %}{% endblock %}
+
+        {# {{ encore_entry_script_tags('app') }} #}
+
+        <script src="/public/build/app.js"></script>
+        <script src="/public/build/runtime.js"></script>
+        <script src="/public/build/vendors~app.js"></script>
+        <script src="/public/build/vendors~annonce~app.js"></script>
         
-        {{ encore_entry_script_tags('app') }}
-
         {% block javascripts %}{% endblock %}
-
 
         {% include 'admin/partials/footer.html.twig'   %}
     </body>

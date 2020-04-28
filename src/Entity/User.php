@@ -79,12 +79,12 @@ class User implements UserInterface
     private $slug;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Ad", mappedBy="author")
+     * @ORM\OneToMany(targetEntity="App\Entity\Ad", mappedBy="author", orphanRemoval=true)
      */
     private $ads;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Role", mappedBy="users")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Role", mappedBy="users", orphanRemoval=true)
      */
     private $userRoles;
 
@@ -94,7 +94,7 @@ class User implements UserInterface
     private $bookings;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Comment", mappedBy="author", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="App\Entity\Comment", mappedBy="author")
      */
     private $comments;
 

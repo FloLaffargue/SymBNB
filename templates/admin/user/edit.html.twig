@@ -1,0 +1,66 @@
+{% extends 'admin/base.html.twig' %}
+
+{% form_theme form 'admin/user/_collection_role.html.twig'%}
+
+{% block body %}
+
+    <div class="container">
+        <h1 class="my-5">Modification de l'utilisateur {{ user.fullName }}</h1>
+        <div class="card bg-light">
+            <div class="card-header">
+                <h4>Informations</h4>
+            </div>
+            <div class="card-body">
+                {{ form_start(form) }}
+
+                {{ form_widget(form) }}
+
+                <button type="submit" class="btn btn-success">
+                    <i class="fas fa-check"></i>
+                    Enregistrer
+                </button>
+
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block javascripts %}
+
+<script>
+
+    $('#add-image').click(function() {
+
+        // Je récupére le nombre de block d'image
+        const index = +$('#widgets-counter').val()
+
+        // Je recupére le prototype d'un block image et je remplace l'attribut name par l'index
+        // Drapeau "g" = fais le plusieurs fois
+        const tmpl = $('#user_userRoles').data('prototype').replace(/__name__/g, index)
+
+        $('#user_userRoles').append(tmpl)
+        $('#widgets-counter').val(index + 1)
+
+        handleDeleteButtons();
+    })
+
+    function handleDeleteButtons() {
+        $('button[data-action="delete"]').click(function() {
+            const target = this.dataset.target
+            $(target).remove();
+        })
+    }
+
+    function updateCounter() {
+        const count = +$('#user_userRoles div.form-group').length
+        $('#widgets-counter').val(count)
+    }
+
+    handleDeleteButtons();
+    updateCounter();
+
+</script>
+
+{% endblock %}

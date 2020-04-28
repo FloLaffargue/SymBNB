@@ -1,0 +1,59 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Administration des utilisateurs{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+
+    <h1 class="my-5">Gestion des utilisateurs</h1>
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Photo</th>
+                <th>Prénom</th>
+                <th>Nom</th>
+                <th>Email</th>
+                <th>Introduction</th>
+                <th>Description</th>
+                <th>Nb Annonces</th>
+                <th>Nb Bookings</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in pagination.data %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>
+                    <img src="{{ user.picture }}" class="avatar avatar-medium">
+                </td>
+                <td>{{ user.firstName }}</td>
+                <td>{{ user.lastName }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.introduction }}</td>
+                <td>{{ user.description | raw }}</td>
+                <td>
+                    <span class="badge badge-primary">{{ user.ads | length }}</span>
+                </td>
+                <td>
+                    <span class="badge badge-primary">{{ user.bookings | length }}</span>
+                </td>
+                <td>
+                    <a href="{{ path('admin_user_edit', { 'id': user.id }) }}" class="btn btn-primary">
+                        <i class="fas fa-edit"></i>
+                    </a>
+                    <a href="{{ path('admin_user_delete', {'id': user.id }) }}" class="btn btn-danger">
+                        <i class="fas fa-trash"></i>
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    {{ pagination.display() }}
+
+</div>
+{% endblock %}

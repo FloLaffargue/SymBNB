@@ -4,6 +4,7 @@ $('#add-image').click(function() {
     const index = +$('#widgets-counter').val()
 
     // Je recupére le prototype d'un block image et je remplace l'attribut name par l'index
+    // Drapeau "g" = fais le plusieurs fois
     const tmpl = $('#annonce_images').data('prototype').replace(/__name__/g, index)
 
     $('#annonce_images').append(tmpl)

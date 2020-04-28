@@ -78,7 +78,7 @@ class Ad
     private $author;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Booking", mappedBy="ad")
+     * @ORM\OneToMany(targetEntity="App\Entity\Booking", mappedBy="ad", orphanRemoval=true)
      */
     private $bookings;
 

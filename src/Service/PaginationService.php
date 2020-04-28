@@ -75,7 +75,7 @@ class PaginationService {
      * @param ObjectManager $manager
      * @param Environment $twig
      * @param RequestStack $request
-     * @param string $templatePath
+     * @param string $templatePath (se trouve dans le fichier service.yaml)
      */
     public function __construct(EntityManagerInterface $manager, Environment $twig, RequestStack $request, $templatePath) {
 

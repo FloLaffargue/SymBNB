@@ -38,6 +38,11 @@ class Role
         return $this->id;
     }
 
+    public function setId($id): void
+    {
+        $this->id = $id;
+    }
+    
     public function getTitle(): ?string
     {
         return $this->title;
